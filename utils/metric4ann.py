@@ -144,7 +144,7 @@ def compare_f_measure_by_type(gold_file, pred_file):
 
 def get_ner_from_sentence(sentence):
     ## remove segmentation space, avoid segmentation changes
-    sentence = sentence.strip().replace(' ', '').decode('utf-8')
+    sentence = sentence.strip().replace(' ', '')
     sentence_len = len(sentence)
     # print sentence
     entity_start = []

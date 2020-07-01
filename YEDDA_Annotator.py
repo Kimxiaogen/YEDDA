@@ -16,8 +16,11 @@ from collections import deque
 import json
 import os.path
 import platform
+
+from extend import docxSupport
 from utils.recommend import *
 import tkinter.messagebox as tkMessageBox
+import extend.docxSupport
 
 class StrToBytes:
     def __init__(self, fileobj):
@@ -267,8 +270,11 @@ class Example(Frame):
             self.setCursorLabel(self.text.index(INSERT))
 
     def readFile(self, filename):
-        f = open(filename, "r",encoding='utf-8')
-        text = f.read()
+        if(os.path.splitext(filename)[-1] == ".docx"):
+            text = docxSupport.readdocx(filename)
+        else:
+            f = open(filename, "r",encoding='utf-8')
+            text = f.read()
         self.fileName = filename
         return text
 

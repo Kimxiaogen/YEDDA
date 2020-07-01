@@ -363,7 +363,7 @@ def generate_latex(sentence, gold_bound, pred_bound):
             # print "".join(sentence)
             # print gold_bound
             # print pred_bound
-            # print len(pred_bound),len(gold_bound), len(sentence), idx
+            print (len(pred_bound),len(gold_bound), len(sentence), idx)
             if pred_bound[idx] == 1:
                 if segment_tag == -1:
                     word_segment += word
@@ -408,9 +408,9 @@ def generate_latex(sentence, gold_bound, pred_bound):
 def get_ner_from_sentence(sentence, remove_seg=True):
     ## remove segmentation space, avoid segmentation changes
     if remove_seg:
-        sentence = sentence.strip().replace(' ', '').decode('utf-8')
+        sentence = sentence.strip().replace(' ', '')
     else:
-        sentence = sentence.strip().decode('utf-8')
+        sentence = sentence.strip()
     sentence_len = len(sentence)
     # print sentence
     entity_start = []
